@@ -1,18 +1,11 @@
-#include <SFML/Graphics.hpp>
+#include "Window.h"
 
 int main(int argc, char** argv[])
 {
-	sf::RenderWindow window(sf::VideoMode(640, 480), "Window Title");
-
+	Window window("Window Title", {1280, 720});
 	while (window.isOpen())
 	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
-
+		window.update();
 		window.clear();
 		window.display();
 	}
