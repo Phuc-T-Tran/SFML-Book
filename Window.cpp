@@ -1,6 +1,7 @@
 #include "Window.h"
 #include <iostream>
 
+
 Window::Window(const std::string& title, const sf::Vector2u& size, bool fullscreen)
 	: m_title(title), m_size(size), m_fullscreen(fullscreen), m_isOpen(true)
 {
