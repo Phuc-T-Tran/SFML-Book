@@ -4,7 +4,7 @@
 class Game
 {
 public:
-	Game();
+	Game(const std::string& title = "Default Title", const unsigned width = 640, const unsigned height = 480);
 	~Game();
 
 	void run();
@@ -12,9 +12,9 @@ public:
 	Window* getWindow();
 
 private:
-	void handleInput();
-	void update();
-	void render();
+	virtual void handleInput();
+	virtual void update();
+	virtual void render();
 
 	Window m_window;
 };

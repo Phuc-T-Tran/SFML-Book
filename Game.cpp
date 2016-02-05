@@ -1,8 +1,8 @@
 #include "Game.h"
 
 
-
-Game::Game() : m_window("Game", { 1280,720 })
+Game::Game(const std::string& title, const unsigned width, const unsigned height)
+	: m_window(title, { width,height })
 {
 }
 
