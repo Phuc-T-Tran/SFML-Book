@@ -8,6 +8,9 @@ public:
 	Window(const std::string& title, const sf::Vector2u& size, bool fullscreen = false);
 	~Window();
 
+	void create();
+	void close();
+
 	void update();
 	void clear();
 	void draw(sf::Drawable& drawable);
@@ -18,9 +21,6 @@ public:
 	bool isOpen();
 
 private:
-	void create();
-	void close();
-
 	sf::RenderWindow m_window;
 
 	std::string m_title;
