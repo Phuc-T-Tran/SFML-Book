@@ -1,0 +1,11 @@
+﻿  SnakeGame.cpp
+c:\users\phuc tran\documents\visual studio 2015\projects\sfmlbook\sfmlbook\snakegame.cpp(10): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\phuc tran\documents\visual studio 2015\projects\sfmlbook\sfmlbook\snakegame.cpp(11): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\phuc tran\documents\visual studio 2015\projects\sfmlbook\sfmlbook\snakegame.cpp(61): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\users\phuc tran\documents\visual studio 2015\projects\sfmlbook\sfmlbook\snakegame.cpp(62): warning C4018: '<': signed/unsigned mismatch
+c:\users\phuc tran\documents\visual studio 2015\projects\sfmlbook\sfmlbook\snakegame.cpp(66): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\phuc tran\documents\visual studio 2015\projects\sfmlbook\sfmlbook\snakegame.cpp(73): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\users\phuc tran\documents\visual studio 2015\projects\sfmlbook\sfmlbook\snakegame.cpp(74): warning C4018: '<': signed/unsigned mismatch
+c:\users\phuc tran\documents\visual studio 2015\projects\sfmlbook\sfmlbook\snakegame.cpp(78): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  SFMLBook.vcxproj -> C:\Users\Phuc Tran\Documents\Visual Studio 2015\Projects\SFMLBook\Debug\SFMLBook.exe
+  SFMLBook.vcxproj -> C:\Users\Phuc Tran\Documents\Visual Studio 2015\Projects\SFMLBook\Debug\SFMLBook.pdb (Partial PDB)
