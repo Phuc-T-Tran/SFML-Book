@@ -13,42 +13,30 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\Snake">
-      <UniqueIdentifier>{37dcc55f-a06a-415f-a2f7-9a439e4e3cab}</UniqueIdentifier>
+    <Filter Include="Header Files\Core">
+      <UniqueIdentifier>{57aebac6-64da-4405-a7d1-9c76497f247d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Snake">
-      <UniqueIdentifier>{16e3b002-4366-4d12-a5e8-180cb6753807}</UniqueIdentifier>
+    <Filter Include="Source Files\Core">
+      <UniqueIdentifier>{9e6ef8f9-662b-4430-9f15-b92824ad7298}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Window.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\Core\Game.cpp">
+      <Filter>Source Files\Core</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Snake.cpp">
-      <Filter>Source Files\Snake</Filter>
-    </ClCompile>
-    <ClCompile Include="SnakeGame.cpp">
-      <Filter>Source Files\Snake</Filter>
+    <ClCompile Include="src\Core\Window.cpp">
+      <Filter>Source Files\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Window.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="src\Core\Game.h">
+      <Filter>Header Files\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SnakeGame.h">
-      <Filter>Header Files\Snake</Filter>
-    </ClInclude>
-    <ClInclude Include="Snake.h">
-      <Filter>Header Files\Snake</Filter>
+    <ClInclude Include="src\Core\Window.h">
+      <Filter>Header Files\Core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
