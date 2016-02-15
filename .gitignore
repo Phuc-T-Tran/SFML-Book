@@ -240,3 +240,5 @@ _Pvt_Extensions
 *sln
 *.vcxproj
 *.filters
+*.iobj
+*.ipdb
