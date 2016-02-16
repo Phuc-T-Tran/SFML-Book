@@ -43,6 +43,11 @@ void EventManager::setFocus(bool focus)
 	m_hasFocus = focus;
 }
 
+void EventManager::setState(StateType type)
+{
+	m_state = type;
+}
+
 void EventManager::handleEvent(sf::Event& event)
 {
 	for (auto& b_it : m_bindings)
@@ -140,8 +145,14 @@ void EventManager::update()
 		if (binding->events.size() == binding->count)
 		{
 			// All events are satisfied. Execute the callback.
-			auto c_it = m_callbacks.find(binding->name);
-			if (c_it != m_callbacks.end())
+			// Check for global callbacks first
+			auto gc_it = m_callbacks[StateType::None].find(binding->name);
+			if (gc_it != m_callbacks[StateType::None].end())
+				(*gc_it).second(&binding->data);
+			
+			// Then check for state specific callbacks
+			auto c_it = m_callbacks[m_state].find(binding->name);
+			if (c_it != m_callbacks[m_state].end())
 				(*c_it).second(&binding->data);
 		}
 		binding->count = 0;

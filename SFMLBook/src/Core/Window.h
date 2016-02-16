@@ -22,6 +22,7 @@ public:
 
 	bool isOpen();
 	sf::RenderWindow& getRenderWindow();
+	EventManager& getEventManager();
 
 private:
 	sf::RenderWindow m_window;

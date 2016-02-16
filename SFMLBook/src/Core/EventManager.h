@@ -2,6 +2,7 @@
 #include <SFML\Graphics.hpp>
 #include <unordered_map>
 #include <functional>
+#include "StateManager.h"
 
 enum class Event {
 	Closed = sf::Event::Closed,
@@ -82,7 +83,10 @@ struct Binding {
 };
 
 using Bindings = std::unordered_map<std::string, Binding*>;
-using Callbacks = std::unordered_map< std::string, std::function<void(EventData*)> >;
+
+
+using CallbackContainer = std::unordered_map< std::string, std::function<void(EventData*)> >;
+using Callbacks = std::unordered_map<StateType, CallbackContainer>;
 
 class EventManager
 {
@@ -93,17 +97,19 @@ public:
 	bool addBinding(Binding* binding);
 	void removeBinding(const std::string& name);
 	void setFocus(bool focus);
+	void setState(StateType type);
 
 	template<class T>
-	bool addCallback(const std::string& name, void(T::*func)(EventData*), T* instance)
+	bool addCallback(StateType type, const std::string& name, void(T::*func)(EventData*), T* instance)
 	{
+		m_callbacks.emplace(std::make_pair(type, CallbackContainer()));
 		auto temp = std::bind(func, instance, std::placeholders::_1);
-		return m_callbacks.emplace(name, temp).second;
+		return m_callbacks[type].emplace(name, temp).second;
 	}
 
 	void removeCallback(const std::string& name)
 	{
-		m_callbacks.erase(name);
+		m_callbacks[m_state].erase(name);
 	}
 
 	void handleEvent(sf::Event& event);
@@ -116,5 +122,6 @@ private:
 
 	Bindings m_bindings;
 	Callbacks m_callbacks;
+	StateType m_state;
 	bool m_hasFocus;
 };

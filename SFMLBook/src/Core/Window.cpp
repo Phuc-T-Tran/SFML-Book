@@ -23,9 +23,9 @@ void Window::create()
 
 	m_window.setView(sf::View({ 0,0,(float)m_resolution.x,(float)m_resolution.y }));
 
-	m_eventManager.addCallback("closeWindow", &Window::close, this);
-	m_eventManager.addCallback("toggleFullscreen", &Window::toggleFullscreen, this);
-	m_eventManager.addCallback("toggleBorderless", &Window::toggleBorderless, this);
+	m_eventManager.addCallback(StateType::None, "closeWindow", &Window::close, this);
+	m_eventManager.addCallback(StateType::None, "toggleFullscreen", &Window::toggleFullscreen, this);
+	m_eventManager.addCallback(StateType::None, "toggleBorderless", &Window::toggleBorderless, this);
 }
 
 void Window::close(EventData* data)
@@ -33,6 +33,7 @@ void Window::close(EventData* data)
 	m_window.close();
 	m_eventManager.removeCallback("closeWindow");
 	m_eventManager.removeCallback("toggleFullscreen");
+	m_eventManager.removeCallback("toggleBorderless");
 }
 
 void Window::update()
@@ -92,3 +93,4 @@ void Window::toggleBorderless(EventData* data)
 bool Window::isOpen() { return m_isOpen; }
 
 sf::RenderWindow& Window::getRenderWindow() { return m_window; }
+EventManager& Window::getEventManager() { return m_eventManager; }

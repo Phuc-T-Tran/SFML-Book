@@ -8,18 +8,6 @@ class StateManager;
 class Window;
 class EventManager;
 
-enum class StateType { None, Intro, MainMenu, Game, Paused, GameOver, Credits };
-
-using StateContainer = std::vector<std::pair<StateType, BaseState*>>;
-using TypeContainer = std::vector<StateType>;
-using StateFactory = std::unordered_map<StateType, std::function<BaseState*(void)>>;
-
-struct Context {
-	Context() : m_window(nullptr), m_eventManager(nullptr) {}
-	Window* m_window;
-	EventManager* m_eventManager;
-};
-
 class BaseState
 {
 public:
@@ -33,7 +21,7 @@ public:
 	virtual void onCreate() = 0;
 	virtual void onDestroy() = 0;
 
-	virtual void active() = 0;
+	virtual void activate() = 0;
 	virtual void deactivate() = 0;
 
 	virtual void update(const sf::Time& delta) = 0;

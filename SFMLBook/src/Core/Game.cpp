@@ -2,8 +2,11 @@
 // <SFML\System\Time.hpp>
 
 Game::Game(const std::string& title, const float fps, const unsigned width, const unsigned height)
-	: m_window(title, { width,height }), m_fps(fps), m_width(width), m_height(height)
+	: m_window(title, { width,height }), m_fps(fps), m_width(width), m_height(height), m_stateManager(&m_context)
 {
+	m_context.window = &m_window;
+	m_context.eventManager = &m_window.getEventManager();
+	m_stateManager.switchTo(StateType::Intro);
 }
 
 
@@ -22,11 +25,13 @@ void Game::run()
 		m_window.update();
 
 		handleInput();
-		update();
+		update(clock.getElapsedTime());
 
 		m_window.clear();
 		render();
 		m_window.display();
+
+		lateUpdate();
 
 		time = clock.getElapsedTime().asSeconds();
 		if (frameRate > time)
@@ -39,12 +44,19 @@ void Game::handleInput()
 {
 }
 
-void Game::update()
+void Game::update(const sf::Time& delta)
 {
+	m_stateManager.update(delta);
 }
 
 void Game::render()
 {
+	m_stateManager.render();
+}
+
+void Game::lateUpdate()
+{
+	m_stateManager.processRequests();
 }
 
 void Game::setFPS(float fps)

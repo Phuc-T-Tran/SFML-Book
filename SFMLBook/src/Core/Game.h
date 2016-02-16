@@ -1,5 +1,6 @@
 #pragma once
 #include "Window.h"
+#include "StateManager.h"
 
 class Game
 {
@@ -14,8 +15,10 @@ public:
 
 protected:
 	virtual void handleInput();
-	virtual void update();
+	virtual void update(const sf::Time& delta);
 	virtual void render();
+	virtual void lateUpdate();
+
 	int getWidth();
 	int getHeight();
 
@@ -23,5 +26,8 @@ protected:
 	float m_fps;
 	int m_width;
 	int m_height;
+
+	Context m_context;
+	StateManager m_stateManager;
 };
 
