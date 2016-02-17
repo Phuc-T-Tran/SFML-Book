@@ -24,6 +24,9 @@ public:
 	virtual void render() override;
 
 private:
+	sf::Texture backgroundTexture;
+	sf::Sprite background;
+
 	sf::Font font;
 	sf::Text text;
 };

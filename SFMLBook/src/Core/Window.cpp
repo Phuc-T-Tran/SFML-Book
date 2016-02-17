@@ -46,7 +46,7 @@ void Window::update()
 			m_hasFocus = false;
 			m_eventManager.setFocus(false);
 		}
-		else if (event.type == sf::Event::LostFocus)
+		else if (event.type == sf::Event::GainedFocus)
 		{
 			m_hasFocus = true;
 			m_eventManager.setFocus(true);

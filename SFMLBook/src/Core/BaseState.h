@@ -10,6 +10,7 @@ class EventManager;
 
 class BaseState
 {
+	friend class StateManager;
 public:
 	BaseState(StateManager* stateManager)
 		: m_stateManager(stateManager), m_transparent(false), m_transcendent(false)
@@ -32,10 +33,12 @@ public:
 
 	bool isTransparent() { return m_transparent; }
 	bool isTranscendent() { return m_transcendent; }
+	sf::View& getView() { return m_view; }
 
 protected:
 	StateManager* m_stateManager;
-	bool m_transparent;  // Render state beneath us
-	bool m_transcendent; // Update state beneath us
+	bool m_transparent;  // Render states beneath us
+	bool m_transcendent; // Update states beneath us
+	sf::View m_view;
 };
 

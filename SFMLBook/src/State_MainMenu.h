@@ -1,5 +1,6 @@
 #pragma once
 #include "Core/BaseState.h"
+class EventData;
 
 class State_MainMenu : public BaseState
 {
@@ -7,7 +8,7 @@ public:
 	State_MainMenu(StateManager* stateManager);
 	~State_MainMenu();
 
-
+	void toIntro(EventData* data);
 
 	// Inherited via BaseState
 	virtual void onCreate() override;

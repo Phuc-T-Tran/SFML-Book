@@ -13,7 +13,7 @@ State_Intro::State_Intro(StateManager* stateManager)
 
 State_Intro::~State_Intro()
 {
-	m_stateManager->getContext()->eventManager->removeCallback("toMainMenu");
+	onDestroy();
 }
 
 void State_Intro::toMainMenu(EventData* data)
@@ -23,12 +23,18 @@ void State_Intro::toMainMenu(EventData* data)
 
 void State_Intro::onCreate()
 {
+	// Configure background
+	backgroundTexture.loadFromFile("data/textures/bg_snowy.png");
+	background.setTexture(backgroundTexture);
+
+	// Configure intro text
 	font.loadFromFile("data/fonts/consola.ttf");
 	sf::Text text("INTRO", font, 55);
 	this->text = text;
 	this->text.setPosition(100, 100);
 	this->text.setColor(sf::Color::White);
 
+	// Add state hotkeys
 	m_stateManager->getContext()->eventManager->addCallback(StateType::Intro, "toMainMenu", &State_Intro::toMainMenu, this);
 
 	std::cout << "Intro Created" << std::endl;
@@ -36,6 +42,8 @@ void State_Intro::onCreate()
 
 void State_Intro::onDestroy()
 {
+	m_stateManager->getContext()->eventManager->removeCallback("toMainMenu");
+	std::cout << "Intro Destroyed" << std::endl;
 }
 
 void State_Intro::activate()
@@ -54,5 +62,6 @@ void State_Intro::update(const sf::Time & delta)
 
 void State_Intro::render()
 {
+	m_stateManager->getContext()->window->draw(background);
 	m_stateManager->getContext()->window->draw(text);
 }
